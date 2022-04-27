@@ -27,6 +27,13 @@ screen.tracer(0)#DESACTIVAR EL EFECTO Animación por defecto
 
 snake = Snake () #crear ó instanciar objeto serpiente
 
+#Movimientos serpiente
+screen.listen()
+screen.onkey(snake.up,"Up")#en el parentesis se pone acción y con que rtecla
+screen.onkey(snake.down,"Down")#en el parentesis se pone acción y con que rtecla
+screen.onkey(snake.left,"Left")#en el parentesis se pone acción y con que rtecla
+screen.onkey(snake.right,"Right")#en el parentesis se pone acción y con que rtecla
+
 game_is_on = True ## True y False siempre con mayusculas
 
 while game_is_on:
