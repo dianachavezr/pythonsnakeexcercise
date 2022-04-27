@@ -6,10 +6,12 @@ from requests import head
     #tuplas = COORDENADAS
 STARTING_POSITION = [(0,0),(-20,0), (-40,0)]#constante se crea siempre con mayusculas
 
+#CONSTANTES PARA LOS MOVIMIENTOS
 UP= 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+
 
 # creación del cuerpo de la serpiente
 class Snake:

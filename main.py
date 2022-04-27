@@ -1,6 +1,6 @@
 from turtle import Screen
 from snake import Snake
-
+from food import Food
 import time
 
 #Crear escenario
@@ -27,6 +27,8 @@ screen.tracer(0)#DESACTIVAR EL EFECTO Animación por defecto
 
 snake = Snake () #crear ó instanciar objeto serpiente
 
+food = Food() #instanciar objet comida
+
 #Movimientos serpiente
 screen.listen()
 screen.onkey(snake.up,"Up")#en el parentesis se pone acción y con que rtecla
@@ -41,6 +43,7 @@ while game_is_on:
     time.sleep(0.2)#para jugar con el tiempo del movimiento de la serpiente
 
     snake.move()
+  
 
 #cerrar ventana
 screen.exitonclick()
