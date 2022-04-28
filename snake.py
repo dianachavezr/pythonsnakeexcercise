@@ -24,12 +24,18 @@ class Snake:
     def create_snake(self): #creación de método
         #Codigo con ciclo FOR
         for position in STARTING_POSITION:
-            #goto es para mover la serpiente en las diferentes coordenadas
+           self.add_segment(position)
+
+    def add_segment(self, position):
             snake_segment = Turtle("square")
             snake_segment.color('white')
             snake_segment.penup()
             snake_segment.goto(position)##primer numero es X, segundo número es Y
-            self.segments.append(snake_segment) #agregar elementos a la lista self.segments    
+            self.segments.append(snake_segment) #agregar elementos a la lista self.segments
+
+    def extend(self):#hacer crecer la serpiente
+        self.add_segment(self.segments[-1].position())
+
 
     #metodo movimiento de la 
     def move(self):

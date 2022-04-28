@@ -14,4 +14,5 @@ class Food(Turtle):#crear clase Food, la herencia es entre parentesis, en este c
     def refresh(self): #metodo para refrescar y generar nuevo lugar de la comida
         random_x = random.randint(-200, 200)#no debe pasar de 300 ó se sale de la pantalla
         random_y = random.randint(-200, 200)#no debe pasar de 300 ó se sale de la pantalla
-        self.goto(random_x, random_y) 
+        self.goto(random_x, random_y)
+         

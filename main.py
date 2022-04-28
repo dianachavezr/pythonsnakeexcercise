@@ -1,6 +1,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
 
 #Crear escenario
@@ -29,6 +30,8 @@ snake = Snake () #crear ó instanciar objeto serpiente
 
 food = Food() #instanciar objet comida
 
+scoreboard = Scoreboard()#crear objero tablero de puntos (scoreboard)
+
 #Movimientos serpiente
 screen.listen()
 screen.onkey(snake.up,"Up")#en el parentesis se pone acción y con que rtecla
@@ -43,7 +46,29 @@ while game_is_on:
     time.sleep(0.2)#para jugar con el tiempo del movimiento de la serpiente
 
     snake.move()
-  
+
+    #crear una condicion para detectart colision con la comida
+    
+    if snake.head.distance(food)<15: #.distance para detectar distancia entre serpiente y comida
+        food.refresh() #cambiar comida de sitio cuando se va comiendo
+        scoreboard.increase_score() #incrementar el score
+        snake.extend()
+
+
+    #Detectar paredes
+    if snake.head.xcor()> 280 or snake.head.xcor() < -280 or snake.head.ycor()> 280 or snake.head.ycor() < -280:
+        game_is_on = False
+        scoreboard.game_over()
+
+    #detectar la colisión de cola
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) <10:
+             game_is_on = False
+             scoreboard.game_over()
+
+
 
 #cerrar ventana
 screen.exitonclick()
